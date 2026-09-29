@@ -14,7 +14,6 @@ from typing import Any
 
 from dhis2w_client.generated.v41.oas import User
 from dhis2w_client.v41.envelopes import WebMessageResponse
-
 from dhis2w_core.profile import resolve_profile
 from dhis2w_core.v41.plugins.user import service
 from dhis2w_core.v41.plugins.user.service import UserInvite

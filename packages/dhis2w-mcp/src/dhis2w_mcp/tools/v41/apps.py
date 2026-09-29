@@ -5,7 +5,6 @@ from __future__ import annotations
 from typing import Any
 
 from dhis2w_client.v41 import App, AppHubApp, AppsSnapshot, RestoreSummary
-
 from dhis2w_core.profile import resolve_profile
 from dhis2w_core.v41.plugins.apps import service
 from dhis2w_core.v41.plugins.apps.models import InstallTarget, UpdateOutcome, UpdateSummary

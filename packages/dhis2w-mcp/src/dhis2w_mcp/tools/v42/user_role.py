@@ -6,7 +6,6 @@ from typing import Any
 
 from dhis2w_client.generated.v42.oas import UserRole
 from dhis2w_client.v42.envelopes import WebMessageResponse
-
 from dhis2w_core.profile import resolve_profile
 from dhis2w_core.v42.plugins.user_role import service
 

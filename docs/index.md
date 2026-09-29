@@ -17,18 +17,18 @@ tool surface on top:
 **Rule of thumb: capable cloud model → full server; small on-box model (or data that can't leave the
 machine) → the bridge, or the router if you want typed discovery / to federate several MCP servers.**
 
-- **Full server** — set up below, then the [tutorial](tutorial.md), [architecture](../architecture/mcp.md), and [tool reference](../mcp-reference.md).
-- **Bridge** — see its [usage guide](bridge.md) and [design rationale](../architecture/mcp-bridge.md).
-- **Router** — see its [design](../architecture/mcp-router.md).
-- **Compare all three** — the [MCP surfaces map](../architecture/mcp-surfaces.md) shows how they relate, how a call flows end to end (`mcp ⇒ router ⇒ DHIS2`), the shared security model, and how to choose.
+- **Full server** — set up below, then the [tutorial](tutorial.md), [architecture](architecture/mcp.md), and [tool reference](tool-reference.md).
+- **Bridge** — see its [usage guide](bridge.md) and [design rationale](architecture/mcp-bridge.md).
+- **Router** — see its [design](architecture/mcp-router.md).
+- **Compare all three** — the [MCP surfaces map](architecture/mcp-surfaces.md) shows how they relate, how a call flows end to end (`mcp ⇒ router ⇒ DHIS2`), the shared security model, and how to choose.
 
 The rest of this page sets up the full server (the common path).
 
 ## Setting up the full server (dhis2w-mcp)
 
-`dhis2w-mcp` is a [FastMCP](https://github.com/jlowin/fastmcp) server that exposes most `dhis2w-core` plugins as typed [Model Context Protocol](https://modelcontextprotocol.io/) tools. When launched by an MCP host (Claude Desktop, Claude Code, Cursor, Continue, Cline, or anything that speaks stdio MCP), it registers around 304 tools sharing the same typed service functions as the CLI and the Python client. A handful of CLI surfaces (`d2w dev` codegen + sample fixtures, `d2w browser` Playwright automation, profile mutations like `add` / `login` / `remove`) are intentionally CLI-only — see the [capability matrix](../index.md#capability-matrix) for the full list.
+`dhis2w-mcp` is a [FastMCP](https://github.com/jlowin/fastmcp) server that exposes most `dhis2w-core` plugins as typed [Model Context Protocol](https://modelcontextprotocol.io/) tools. When launched by an MCP host (Claude Desktop, Claude Code, Cursor, Continue, Cline, or anything that speaks stdio MCP), it registers around 304 tools sharing the same typed service functions as the CLI and the Python client. A handful of CLI surfaces (`d2w dev` codegen + sample fixtures, `d2w browser` Playwright automation, profile mutations like `add` / `login` / `remove`) are intentionally CLI-only — see the [capability matrix](https://winterop-com.github.io/dhis2w/#capability-matrix) for the full list.
 
-It is the right pick for driving DHIS2 from an LLM agent on a live stack — every tool call surfaces a typed result + typed error and is logged with its arguments. For direct CLI use, see the [CLI surface](../cli/index.md); for Python, the [client library](../client/index.md).
+It is the right pick for driving DHIS2 from an LLM agent on a live stack — every tool call surfaces a typed result + typed error and is logged with its arguments. For direct CLI use, see the [CLI surface](https://winterop-com.github.io/dhis2w/cli/); for Python, the [client library](https://winterop-com.github.io/dhis2w/client/).
 
 ## Install
 
@@ -79,8 +79,8 @@ The host launches it as `uv run --directory /path/to/project dhis2w-mcp` (see th
 If you cloned `dhis2-utils` to hack on the server:
 
 ```bash
-git clone git@github.com:winterop-com/dhis2w.git
-cd dhis2w
+git clone git@github.com:winterop-com/dhis2w-mcp.git
+cd dhis2w-mcp
 make install                               # uv sync --all-packages
 uv run dhis2w-mcp --version
 ```
@@ -236,7 +236,7 @@ Independently of that switch, every tool advertises a `readOnlyHint` annotation 
 
 Several tools read and write **arbitrary local filesystem paths** the agent provides:
 
-- `metadata_export(output_path=...)` writes a metadata bundle to disk (`packages/dhis2w-core/src/dhis2w_core/v{N}/plugins/metadata/mcp.py`).
+- `metadata_export(output_path=...)` writes a metadata bundle to disk (`packages/dhis2w-mcp/src/dhis2w_mcp/tools/v{N}/metadata.py`).
 - `metadata_diff(left_path=...)`, `metadata_diff_profiles(...)`, `metadata_merge_bundle(...)` read bundle files from disk.
 - `customize_apply(theme_path=...)`, `apps_install_from_file(file_path=...)`, `files_documents_create_external(...)` accept local file paths for upload.
 - `apps_snapshot(output_path=...)` writes a tarball of installed apps to disk.
@@ -253,6 +253,6 @@ If you need stricter isolation, run `dhis2w-mcp` inside a container or a `nsjail
 ## Where next
 
 - [Tutorial](tutorial.md) — your first MCP tool call from an agent.
-- [Reference](../mcp-reference.md) — auto-generated catalog of every tool + parameter schema.
-- [Architecture](../architecture/mcp.md) — how the FastMCP server mounts plugins, return-shape conventions.
-- [Examples index](../examples.md) — Python scripts driving the in-process MCP server end-to-end.
+- [Reference](tool-reference.md) — auto-generated catalog of every tool + parameter schema.
+- [Architecture](architecture/mcp.md) — how the FastMCP server mounts plugins, return-shape conventions.
+- [Examples index](https://github.com/winterop-com/dhis2w-mcp/tree/main/examples) — Python scripts driving the in-process MCP server end-to-end.

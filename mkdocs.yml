@@ -1,0 +1,50 @@
+site_name: dhis2w-mcp
+site_description: The dhis2w MCP servers - the full FastMCP server, the single-tool bridge and the router.
+site_url: https://winterop-com.github.io/dhis2w-mcp/
+repo_url: https://github.com/winterop-com/dhis2w-mcp
+repo_name: winterop-com/dhis2w-mcp
+edit_uri: edit/main/docs/
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - toc.follow
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.highlight
+
+nav:
+  - Overview: index.md
+  - Tutorial: tutorial.md
+  - Tool reference: tool-reference.md
+  - The bridge: bridge.md
+  - Design:
+      - Surfaces compared: architecture/mcp-surfaces.md
+      - The MCP server: architecture/mcp.md
+      - The bridge: architecture/mcp-bridge.md
+      - The router: architecture/mcp-router.md
+  - dhis2w: https://winterop-com.github.io/dhis2w/

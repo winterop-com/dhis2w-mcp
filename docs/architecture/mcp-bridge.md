@@ -3,7 +3,7 @@
 `dhis2w-mcp-bridge` exposes the **entire `d2w` CLI as a single MCP tool**, `dhis2_cli(args)`. This
 is a deliberate inversion of the usual MCP shape, and the reasoning is worth writing down because
 the pattern is unusual. For the *usage* (install, LM Studio wiring, read-only mode) see
-[the bridge guide](../mcp/bridge.md); this page is the *why*.
+[the bridge guide](../bridge.md); this page is the *why*.
 
 ## The problem with the default MCP shape
 
@@ -86,7 +86,7 @@ surface, not the bridge plumbing:
 | Why | can't afford schema tokens; can't pick among hundreds | does its own tool selection; benefits from typed schemas + errors |
 
 Rule of thumb: **local model → bridge, cloud model → full server.** The canonical decision table
-(and the surface picker) lives in [MCP servers — which one?](../mcp/index.md#three-surfaces-which-one);
+(and the surface picker) lives in [MCP servers — which one?](../index.md#three-surfaces-which-one);
 this page is the *why* behind the bridge half.
 
 ## Safety and locality
@@ -122,4 +122,4 @@ workspace and every plugin pack into the one environment a benchmark can measure
   `round` drives one model through a round interactively.
 
 The full methodology, headline findings, and links to every run log are consolidated in
-[AI agent testing](../ai-agent-testing.md).
+[AI agent testing](https://winterop-com.github.io/dhis2w/ai-agent-testing/).

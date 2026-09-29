@@ -134,7 +134,7 @@ running the command directly.
 
 ## Evidence
 
-The trade-offs above are measured, not asserted — see the [benchmark results](../notes/benchmark-results.md):
+The trade-offs above are measured, not asserted — see the [benchmark results](https://winterop-com.github.io/dhis2w/notes/benchmark-results/):
 capable local models drive the full server at 128k; cloud Claude is cheaper over the full typed surface
 than over the bridge (the bridge's CLI discovery costs turns); and a small local model
 (`gemma-4-26b-a4b-qat`) drove the full **311-tool** surface through the **router at 16k context**,
@@ -142,6 +142,6 @@ read-only — the router's reason to exist, proven.
 
 ## Deep dives
 
-- Full server — [setup](../mcp/index.md), [tutorial](../mcp/tutorial.md), [architecture](mcp.md), [tool reference](../mcp-reference.md).
-- Bridge — [usage](../mcp/bridge.md), [design](mcp-bridge.md).
+- Full server — [setup](../index.md), [tutorial](../tutorial.md), [architecture](mcp.md), [tool reference](../tool-reference.md).
+- Bridge — [usage](../bridge.md), [design](mcp-bridge.md).
 - Router — [design](mcp-router.md).

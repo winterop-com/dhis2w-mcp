@@ -7,7 +7,6 @@ from typing import Any
 
 from dhis2w_client.generated.v43.oas import LoginConfigResponse
 from dhis2w_client.v43 import CustomizationResult
-
 from dhis2w_core.profile import resolve_profile
 from dhis2w_core.v43.plugins.customize import service
 

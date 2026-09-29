@@ -2,7 +2,7 @@
 
 FastMCP server that exposes every `dhis2w-core` plugin as MCP tools. Same service functions as the CLI; different I/O shape.
 
-A connected agent (Claude Desktop, Claude Code, Cursor, …) sees roughly 304 typed tools grouped by plugin: `metadata_*`, `data_aggregate_*`, `data_tracker_*`, `analytics_*`, `route_*`, `user_*`, `apps_*`, `system_*`, `messaging_*`, `files_*`, `maintenance_*`, `customize_*`, `profile_*`, `doctor_*`. Counts age with each release; the auto-regenerated `docs/mcp-reference.md` is the source of truth.
+A connected agent (Claude Desktop, Claude Code, Cursor, …) sees roughly 304 typed tools grouped by plugin: `metadata_*`, `data_aggregate_*`, `data_tracker_*`, `analytics_*`, `route_*`, `user_*`, `apps_*`, `system_*`, `messaging_*`, `files_*`, `maintenance_*`, `customize_*`, `profile_*`, `doctor_*`. Counts age with each release; the generated `docs/tool-reference.md` is the source of truth.
 
 ## Install
 
@@ -33,8 +33,8 @@ The PyPI distribution name and the binary name match (`dhis2w-mcp` for both), so
 ### From a workspace checkout (for active development)
 
 ```bash
-git clone git@github.com:winterop-com/dhis2w.git
-cd dhis2w
+git clone git@github.com:winterop-com/dhis2w-mcp.git
+cd dhis2w-mcp
 uv sync --all-packages
 ```
 
@@ -86,7 +86,7 @@ claude mcp add d2w -s user \
 
 # Option 3 — workspace checkout (recommended for active development)
 claude mcp add d2w -s user \
-  -- uv run --directory /absolute/path/to/dhis2w dhis2w-mcp
+  -- uv run --directory /absolute/path/to/dhis2w-mcp dhis2w-mcp
 ```
 
 `-s user` makes the server available across every Claude Code project; drop it for project-only. Verify:
@@ -179,7 +179,7 @@ system_calendar_set
 data_aggregate_push
 ```
 
-See `docs/architecture/conventions.md` for the full verb table (list, get, create, delete, rename, update, patch, set, add_<thing>, remove_<thing>) and `docs/mcp-reference.md` for every tool with its parameter schema.
+See the [dhis2w conventions](https://winterop-com.github.io/dhis2w/architecture/conventions/) for the full verb table (list, get, create, delete, rename, update, patch, set, add_<thing>, remove_<thing>) and `docs/tool-reference.md` for every tool with its parameter schema.
 
 ## Picking up code changes (workspace checkout only)
 

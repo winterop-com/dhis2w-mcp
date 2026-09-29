@@ -6,7 +6,7 @@
 one tool that shells out to the local `d2w` binary.
 
 For *why* it's one tool instead of many — the design reasoning and how the approach is
-validated — see [Bridge design: one tool, not many](../architecture/mcp-bridge.md). This page
+validated — see [Bridge design: one tool, not many](architecture/mcp-bridge.md). This page
 is the usage guide.
 
 ## When to reach for it
@@ -87,7 +87,7 @@ to try a single session.
 ### From the workspace checkout (developing the bridge)
 
 ```bash
-git clone git@github.com:winterop-com/dhis2w.git
+git clone git@github.com:winterop-com/dhis2w-mcp.git
 cd dhis2w && make install
 uv run dhis2w-mcp-bridge --version
 ```
@@ -115,7 +115,7 @@ From a workspace checkout instead, launch it through `uv run`:
   "mcpServers": {
     "dhis2": {
       "command": "uv",
-      "args": ["run", "--directory", "/ABS/PATH/TO/dhis2w", "dhis2w-mcp-bridge"],
+      "args": ["run", "--directory", "/ABS/PATH/TO/dhis2w-mcp", "dhis2w-mcp-bridge"],
       "env": { "DHIS2_PROFILE": "local_basic", "DHIS2_MCP_READONLY": "1" }
     }
   }

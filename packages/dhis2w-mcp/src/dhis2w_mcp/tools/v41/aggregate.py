@@ -5,7 +5,6 @@ from __future__ import annotations
 from typing import Any
 
 from dhis2w_client.v41 import DataValue, DataValueSet, WebMessageResponse
-
 from dhis2w_core.profile import resolve_profile
 from dhis2w_core.v41.plugins.aggregate import service
 from dhis2w_core.v41.plugins.aggregate.models import FollowUpResult

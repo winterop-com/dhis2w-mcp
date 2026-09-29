@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import Any
 
 from dhis2w_client.v42 import JsonPatchOpAdapter, LegendSet, WebMessageResponse
-
 from dhis2w_core.profile import resolve_profile
 from dhis2w_core.v42.plugins.metadata import service
 from dhis2w_core.v42.plugins.metadata.models import MetadataBundle, MetadataCount

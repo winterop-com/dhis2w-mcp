@@ -13,7 +13,6 @@ from dhis2w_client.v43 import (
     ValidationAnalysisResult,
     WebMessageResponse,
 )
-
 from dhis2w_core.profile import resolve_profile
 from dhis2w_core.v43.plugins.maintenance import service
 from dhis2w_core.v43.plugins.maintenance.service import SoftDeleteTarget

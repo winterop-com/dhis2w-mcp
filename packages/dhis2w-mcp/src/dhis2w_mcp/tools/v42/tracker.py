@@ -13,7 +13,6 @@ from dhis2w_client.generated.v42.tracker import (
     TrackerTrackedEntity,
 )
 from dhis2w_client.v42 import WebMessageResponse
-
 from dhis2w_core.profile import resolve_profile
 from dhis2w_core.v42.plugins.tracker import service
 from dhis2w_core.v42.plugins.tracker.service import TrackedEntityTypeSummary

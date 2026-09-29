@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from dhis2w_core.v43.plugins.aggregate import mcp as aggregate_mcp
-from dhis2w_core.v43.plugins.tracker import mcp as tracker_mcp
+from dhis2w_mcp.tools.v43 import aggregate as aggregate_mcp
+from dhis2w_mcp.tools.v43 import tracker as tracker_mcp
 
 
 def register(mcp: Any) -> None:

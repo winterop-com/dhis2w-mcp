@@ -1,4 +1,4 @@
-"""Introspect the dhis2 FastMCP server and write `docs/mcp-reference.md`.
+"""Introspect the dhis2 FastMCP server and write `docs/tool-reference.md`.
 
 Runs the in-process Client, lists every registered tool, and emits a
 markdown reference grouping tools by their top-level prefix (`metadata_*`,
@@ -6,9 +6,9 @@ markdown reference grouping tools by their top-level prefix (`metadata_*`,
 required, description).
 
 Usage:
-    uv run python infra/scripts/gen_mcp_reference.py
+    uv run python scripts/gen_tool_reference.py
 
-Chained into `make docs-build` via the `docs-mcp` target, so the reference
+Chained into `make docs` via the `docs-reference` target, so the reference
 never drifts from the actual server.
 """
 
@@ -22,7 +22,7 @@ from dhis2w_mcp.server import build_server
 from fastmcp import Client
 from mcp.types import Tool
 
-_OUTPUT_PATH = Path(__file__).resolve().parents[2] / "docs" / "mcp-reference.md"
+_OUTPUT_PATH = Path(__file__).resolve().parents[1] / "docs" / "tool-reference.md"
 
 
 def _plugin_key(tool_name: str) -> str:
@@ -96,11 +96,12 @@ async def main() -> None:
         grouped.setdefault(_plugin_key(tool.name), []).append(tool)
 
     sections: list[str] = []
-    sections.append("# MCP reference\n")
+    sections.append("# Tool reference\n")
     sections.append(
-        "Every tool exposed by the `dhis2` FastMCP server, grouped by plugin. "
-        "Auto-generated from the in-process server — do not edit by hand. "
-        "Rebuild via `make docs-mcp` (chained into `make docs-build`).\n"
+        "Every tool the `dhis2` FastMCP server registers for the built-in dhis2w plugins, grouped by "
+        "plugin. A plugin pack installed beside it - `dhis2w-security`, for one - registers its own "
+        "tools on the same server. Generated from the in-process server - do not edit by hand. "
+        "Rebuild with `make docs-reference` (chained into `make docs`).\n"
     )
     sections.append(f"**Total tools**: {len(tools)} across {len(grouped)} plugin groups.\n")
     sections.append("## Plugins\n")

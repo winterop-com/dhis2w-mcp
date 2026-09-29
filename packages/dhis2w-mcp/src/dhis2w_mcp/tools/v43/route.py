@@ -6,7 +6,6 @@ from typing import Any
 
 from dhis2w_client.generated.v43.schemas import Route
 from dhis2w_client.v43 import JsonPatchOp, WebMessageResponse
-
 from dhis2w_core.profile import resolve_profile
 from dhis2w_core.v43.plugins.route import service
 from dhis2w_core.v43.plugins.route.service import RoutePayload

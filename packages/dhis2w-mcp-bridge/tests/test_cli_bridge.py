@@ -58,15 +58,17 @@ READ_ONLY_LEAVES = frozenset(
     }
 )
 
-#: Read-only leaves a plugin pack mounts rather than the host: `d2w security settings` comes from
-#: the `dhis2w-security` pack. They belong on the allowlist so the command is permitted under
-#: read-only mode wherever the pack is installed, and they are absent from the host's own command
-#: tree, so the drift assertions below hold them aside.
-PACK_READ_ONLY_COMMANDS = frozenset({("security", "settings")})
-#: With the pack installed (the CLI's `[security]` extra, present in the workspace venv) its leaves are
-#: part of the live tree and nothing is held aside.
-_HELD_ASIDE: frozenset[tuple[str, ...]] = (
-    frozenset() if importlib.util.find_spec("dhis2w_security") is not None else PACK_READ_ONLY_COMMANDS
+#: Read-only leaves that exist only where the package mounting them is installed: `d2w security
+#: settings` comes from the `dhis2w-security` pack, and `d2w dev codegen diff` from `dhis2w-codegen`,
+#: which only a dhis2w checkout carries. They belong on the allowlist so the command is permitted
+#: under read-only mode wherever it exists, and the drift assertions below hold aside each one whose
+#: package is absent from this environment.
+OPTIONAL_READ_ONLY_COMMANDS: dict[tuple[str, ...], str] = {
+    ("security", "settings"): "dhis2w_security",
+    ("dev", "codegen", "diff"): "dhis2w_codegen",
+}
+_HELD_ASIDE: frozenset[tuple[str, ...]] = frozenset(
+    command for command, module in OPTIONAL_READ_ONLY_COMMANDS.items() if importlib.util.find_spec(module) is None
 )
 
 

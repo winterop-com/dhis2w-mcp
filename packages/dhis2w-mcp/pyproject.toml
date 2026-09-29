@@ -1,7 +1,7 @@
 [project]
 name = "dhis2w-mcp"
-version = "1.28.1"
-description = "dhis2 FastMCP server — mounts plugins from dhis2w-core."
+version = "1.29.0"
+description = "The dhis2w FastMCP server and the MCP tools of every built-in dhis2w-core plugin."
 readme = "README.md"
 authors = [{ name = "Morten Hansen", email = "morten@winterop.com" }]
 requires-python = ">=3.13"
@@ -15,26 +15,25 @@ classifiers = [
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
-  "dhis2w-core>=1.28.1,<2.0",
-  "dhis2w-fhir>=1.28.1,<2.0",
+  # The plugin host, the profile resolver, and the services every tool calls.
+  "dhis2w-core==1.28.1",
+  # `Dhis2Client`, the auth schemes, the error hierarchy, and the generated models the tools return.
+  "dhis2w-client==1.28.1",
   "fastmcp>=3.4.7",
 ]
 
-[project.optional-dependencies]
-browser = ["dhis2w-browser>=1.28.1,<2.0"]
+[project.entry-points."dhis2w.plugins.v1"]
+mcp = "dhis2w_mcp.plugin:plugin"
 
 [project.scripts]
 dhis2w-mcp = "dhis2w_mcp.server:main"
 
 [project.urls]
-Homepage = "https://github.com/winterop-com/dhis2w"
-Documentation = "https://winterop-com.github.io/dhis2w/"
-Repository = "https://github.com/winterop-com/dhis2w"
-Changelog = "https://github.com/winterop-com/dhis2w/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/winterop-com/dhis2w-mcp"
+Documentation = "https://winterop-com.github.io/dhis2w-mcp/"
+Repository = "https://github.com/winterop-com/dhis2w-mcp"
 
 [build-system]
 requires = ["uv_build>=0.12.12,<0.13.0"]
 build-backend = "uv_build"
 
-[tool.uv.sources]
-dhis2w-fhir = { workspace = true }
