@@ -1,6 +1,6 @@
 [project]
 name = "dhis2w-mcp"
-version = "1.30.0"
+version = "1.30.1"
 description = "The dhis2w FastMCP server and the MCP tools of every built-in dhis2w-core plugin."
 readme = "README.md"
 authors = [{ name = "Morten Hansen", email = "morten@winterop.com" }]
@@ -16,9 +16,9 @@ classifiers = [
 ]
 dependencies = [
   # The plugin host, the profile resolver, and the services every tool calls.
-  "dhis2w-core==1.30.0",
+  "dhis2w-core==1.30.1",
   # `Dhis2Client`, the auth schemes, the error hierarchy, and the generated models the tools return.
-  "dhis2w-client==1.30.0",
+  "dhis2w-client==1.30.1",
   "fastmcp>=3.4.7",
 ]
 
