@@ -15,7 +15,7 @@ classifiers = [
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
-    "dhis2w-cli==1.28.1",
+    "dhis2w-cli==1.29.0",
     "fastmcp>=3.4.7",
 ]
 

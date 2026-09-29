@@ -16,9 +16,9 @@ classifiers = [
 ]
 dependencies = [
   # The plugin host, the profile resolver, and the services every tool calls.
-  "dhis2w-core==1.28.1",
+  "dhis2w-core==1.29.0",
   # `Dhis2Client`, the auth schemes, the error hierarchy, and the generated models the tools return.
-  "dhis2w-client==1.28.1",
+  "dhis2w-client==1.29.0",
   "fastmcp>=3.4.7",
 ]
 
