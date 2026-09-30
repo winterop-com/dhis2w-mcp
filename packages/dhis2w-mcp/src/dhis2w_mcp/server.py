@@ -100,7 +100,7 @@ def _annotate_read_only_hints(server: FastMCP) -> None:
     ~315 hand-written typed tools carry no annotations, so every read would still prompt. Rather than
     edit each `@mcp.tool()` site, this single post-registration pass sets the hint in place from the
     same `is_read_tool` verb heuristic the read-only middleware already trusts: reads -> `True`,
-    writes -> `False`. This covers whichever version tree (v41/v42/v43) is mounted.
+    writes -> `False`. This covers whichever version tree (v41/v42/v43/v44) is mounted.
 
     An already-annotated tool is respected — the hint is set only when a tool has no annotations or a
     `readOnlyHint` that is still unset — so a deliberate hand-set annotation is never overwritten. Tool

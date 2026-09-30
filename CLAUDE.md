@@ -28,14 +28,14 @@ Three packages in one uv workspace: `dhis2w-mcp` (the full FastMCP server), `dhi
 upstream MCP servers; domain-neutral, no dhis2w imports). Every member uses the `src/` layout and
 releases the same version.
 
-## The tools and the three version trees
+## The tools and the version trees
 
-The MCP tools of every built-in dhis2w-core plugin live in `dhis2w_mcp.tools.v41`, `.v42` and
-`.v43`, one module per plugin, each exposing `register(mcp)`. A tool is a thin wrapper over the
+The MCP tools of every built-in dhis2w-core plugin live in `dhis2w_mcp.tools.v41`, `.v42`, `.v43`
+and `.v44`, one module per plugin, each exposing `register(mcp)`. A tool is a thin wrapper over the
 same `dhis2w_core.v{N}.plugins.<plugin>.service` function the `d2w` CLI calls - the domain logic
 stays in dhis2w-core, and a tool never reimplements it. v43 is the canonical baseline: a new tool is
-written there first and copied to the two siblings. Every behaviour-changing edit lands in all
-three trees. Each tree's `__init__.py` lists the modules it registers; `data` registers the
+written there first and copied to the siblings. Every behaviour-changing edit lands in every
+tree. Each tree's `__init__.py` lists the modules it registers; `data` registers the
 aggregate and tracker modules itself.
 
 ## The pluginkit contract

@@ -2,7 +2,7 @@
 
 The tool calls the same service as `d2w metadata list`, so `organisationUnits~size` returns the
 transformed row DHIS2 sent, and a page the model cannot hold comes back as a `ToolError` naming the
-selection rather than a validation traceback. Parametrised over v41 / v42 / v43. Mocked (respx).
+selection rather than a validation traceback. Parametrised over v41 / v42 / v43 / v44. Mocked (respx).
 """
 
 from __future__ import annotations
