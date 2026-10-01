@@ -1,8 +1,8 @@
-"""Per-version MCP registration parity — register every plugin's tools on all three trees.
+"""Per-version MCP registration parity — register every plugin's tools on every tree.
 
 The service parity tests cover the service layer; this registers each version tree's contributions
 onto a FastMCP server, executing every plugin's `mcp.py` `register` body + `@mcp.tool` definitions
-across v41/v42/v43. It needs no connection — registration only defines tools.
+across v41/v42/v43/v44. It needs no connection — registration only defines tools.
 """
 
 from __future__ import annotations

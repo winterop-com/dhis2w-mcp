@@ -207,7 +207,7 @@ The server picks its DHIS2 profile from the standard `dhis2w-core` resolution ch
 4. Project-local `.dhis2/profiles.toml` `default` (walking up from `cwd`).
 5. User-global `~/.config/dhis2/profiles.toml` `default`.
 
-The per-call `profile: str | None` kwarg means one running MCP server can target multiple DHIS2 profiles (e.g. local + staging) without restart — **as long as they all share the same DHIS2 major** (v41 / v42 / v43). The plugin tree is bound once at server startup based on `DHIS2_VERSION` env or the startup profile's `version` field; the per-call profile only swaps the wire client.
+The per-call `profile: str | None` kwarg means one running MCP server can target multiple DHIS2 profiles (e.g. local + staging) without restart — **as long as they all share the same DHIS2 major** (v41 / v42 / v43 / v44). The plugin tree is bound once at server startup based on `DHIS2_VERSION` env or the startup profile's `version` field; the per-call profile only swaps the wire client.
 
 Two layers enforce the boundary so silent `v42-parses-v43-payload` bugs aren't possible:
 
@@ -218,7 +218,7 @@ To target a different major, restart the server with `DHIS2_VERSION=v43 dhis2w-m
 
 ## Active plugin tree
 
-`dhis2w-mcp` selects a plugin tree (v41 / v42 / v43) at startup. Override per-launch with the `DHIS2_VERSION` env var:
+`dhis2w-mcp` selects a plugin tree (v41 / v42 / v43 / v44) at startup. Override per-launch with the `DHIS2_VERSION` env var:
 
 ```bash
 DHIS2_VERSION=v43 dhis2w-mcp

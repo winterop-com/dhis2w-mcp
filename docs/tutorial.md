@@ -118,13 +118,13 @@ If the agent can't reach DHIS2 mid-flow (network timeout), the first call may ha
 
 ## 7. Version-sensitive tools
 
-Some tools only register when the active plugin tree matches the DHIS2 server. The v43-only setters are the largest cluster:
+Some tools only register when the active plugin tree matches the DHIS2 server. The v43+ setters are the largest cluster:
 
 - `metadata_program_set_labels(uid, enrollments_label, events_label, program_stages_label)`
 - `metadata_program_set_change_log_enabled(uid, enabled)`
 - `metadata_program_set_enrollment_category_combo(uid, category_combo_uid)`
 
-These are absent from the tool list on a v42-bound server. If the agent says "I don't see a `metadata_program_set_labels` tool", call `system_server_info` to confirm the active plugin tree, then either point the server at a v43 DHIS2 (with `DHIS2_VERSION=v43` in the host's `env:` block) or use the v42 alternatives.
+These are absent from the tool list on a v42-bound server. If the agent says "I don't see a `metadata_program_set_labels` tool", call `system_server_info` to confirm the active plugin tree, then either point the server at a v43 or v44 DHIS2 (with `DHIS2_VERSION=v43` in the host's `env:` block) or use the v42 alternatives.
 
 ## 8. Watching long-running jobs
 

@@ -8,7 +8,7 @@ The [dhis2w](https://github.com/winterop-com/dhis2w) MCP servers, as one plugin 
 | [`dhis2w-mcp-bridge`](packages/dhis2w-mcp-bridge) | One tool, `dhis2_cli`, over the `d2w` CLI, for small local models; read-only by default. |
 | [`dhis2w-mcp-router`](packages/dhis2w-mcp-router) | Search and dispatch over upstream MCP servers, so the tool surface never inflates a model's context. |
 
-The MCP tools of the built-in dhis2w plugins live here, as `dhis2w_mcp.tools.v41|v42|v43`, and reach
+The MCP tools of the built-in dhis2w plugins live here, as `dhis2w_mcp.tools.v41|v42|v43|v44`, and reach
 the server through the `dhis2w.plugins.v1` entry point, the same way every pack registers. They
 call the same `service.py` functions of `dhis2w-core` that the `d2w` CLI does.
 

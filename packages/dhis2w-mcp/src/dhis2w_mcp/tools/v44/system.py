@@ -4,11 +4,11 @@ from __future__ import annotations
 
 from typing import Any
 
-from dhis2w_client.v43 import DhisCalendar, Me, SystemInfo
+from dhis2w_client.v44 import DhisCalendar, Me, SystemInfo
 from dhis2w_core.profile import resolve_profile
-from dhis2w_core.v43.plugins.system import service
-from dhis2w_core.v43.plugins.system.models import SystemSettingsSnapshot
-from dhis2w_core.v43.plugins.system.service import ServerInfo
+from dhis2w_core.v44.plugins.system import service
+from dhis2w_core.v44.plugins.system.models import SystemSettingsSnapshot
+from dhis2w_core.v44.plugins.system.service import ServerInfo
 
 
 def register(mcp: Any) -> None:

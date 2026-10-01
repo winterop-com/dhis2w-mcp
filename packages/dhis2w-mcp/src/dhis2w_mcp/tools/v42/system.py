@@ -59,7 +59,7 @@ def register(mcp: Any) -> None:
         """Return the MCP server's active plugin tree + bound package versions.
 
         Process-local introspection — no DHIS2 client is opened. Tells the
-        caller which plugin tree (`v41` / `v42` / `v43`) was selected at
+        caller which plugin tree (`v41` / `v42` / `v43` / `v44`) was selected at
         startup, where that selection came from (`profile.version`,
         `DHIS2_VERSION` env, or default fallback), and which `dhis2w-*`
         packages are installed. Useful for MCP clients that want to
