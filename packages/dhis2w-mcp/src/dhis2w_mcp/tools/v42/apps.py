@@ -34,7 +34,7 @@ def register(mcp: Any) -> None:
 
         A version id installs directly (`POST /api/appHub/{versionId}`); an app id
         resolves to that app's latest version first (App Hub app ids and version
-        ids are both bare UUIDs - see BUGS.md #46).
+        ids are both bare UUIDs - see DHIS2_ISSUES.md #46).
         """
         return await service.install_from_hub(resolve_profile(profile), app_or_version_id)
 

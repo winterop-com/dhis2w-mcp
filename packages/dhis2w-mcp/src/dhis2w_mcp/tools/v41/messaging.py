@@ -53,7 +53,7 @@ def register(mcp: Any) -> None:
         fileResource UIDs previously uploaded with `domain=MESSAGE_ATTACHMENT`
         (see the `files` plugin). The `MessageConversation.id` is the new
         conversation UID (DHIS2 returns it on the Location header — see
-        BUGS.md #17 — the accessor looks it up for you).
+        DHIS2_ISSUES.md #17 — the accessor looks it up for you).
         """
         return await service.send(
             resolve_profile(profile),

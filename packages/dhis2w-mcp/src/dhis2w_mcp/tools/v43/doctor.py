@@ -26,7 +26,7 @@ def register(mcp: Any) -> None:
           etc.). Each offending UID is listed in the probe's `offending_uids`.
         - `integrity` — wraps DHIS2's own `/api/dataIntegrity/summary` (~40
           built-in checks). `pass` when a DHIS2 check reports zero issues.
-        - `bugs` — verifies BUGS.md workarounds still apply (workspace drift
+        - `bugs` — verifies DHIS2_ISSUES.md workarounds still apply (workspace drift
           detection; not usually the right default for operators).
 
         Default: runs `metadata` + `integrity`. Pass `all_categories=True` to
@@ -49,5 +49,5 @@ def register(mcp: Any) -> None:
 
     @mcp.tool()
     async def doctor_bugs(profile: str | None = None) -> DoctorReport:
-        """Run only BUGS.md workaround drift probes (workspace maintenance)."""
+        """Run only DHIS2_ISSUES.md workaround drift probes (workspace maintenance)."""
         return await service.run_doctor(resolve_profile(profile), categories=("bugs",))

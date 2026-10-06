@@ -7,7 +7,7 @@ an agent can query — distinct from the aggregate `analytics_query` tool.
 Uses the seeded Child Programme (`IpHINAT79UW`) from the e2e dump.
 
 Runs on v41 and v42. DHIS2 v43's event-analytics SQL emitter rejects the
-2024 event data this fixture carries (BUGS.md #36), so `make verify-examples`
+2024 event data this fixture carries (DHIS2_ISSUES.md #36), so `make verify-examples`
 skips this one on a v43 stack.
 
 Usage:

@@ -32,7 +32,7 @@ The MCP tools read the same `DHIS2_URL` / `DHIS2_PAT` / `DHIS2_PROFILE` env cont
 | `metadata_import.py` | `metadata_import` |
 | `metadata_patch.py` | `metadata_patch` (RFC 6902) |
 | `analytics_query.py` | `analytics_query` |
-| `analytics_events_enrollments.py` | `analytics_events_query`, `analytics_enrollments_query` (v41 + v42; v43 rejects the fixture's event data, BUGS.md #36) |
+| `analytics_events_enrollments.py` | `analytics_events_query`, `analytics_enrollments_query` (v41 + v42; v43 rejects the fixture's event data, DHIS2_ISSUES.md #36) |
 | `analytics_outlier_tracked_entities.py` | `analytics_outlier_detection` + tracked-entity analytics |
 | `maintenance.py` | `maintenance_task_*`, `maintenance_dataintegrity_*`, `maintenance_cache_clear` |
 | `aggregate_data_values.py` | `data_aggregate_get / set / delete` |
