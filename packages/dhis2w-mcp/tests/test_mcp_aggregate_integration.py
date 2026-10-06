@@ -45,7 +45,8 @@ async def _aggregate_target(client: Client) -> tuple[str, str] | None:
     )
     if not isinstance(data_sets, list):
         return None
-    # Every major answers 400 to `filter=periodType:eq:Monthly` (BUGS.md #128), so the period type is matched here.
+    # Every major answers 400 to `filter=periodType:eq:Monthly` (DHIS2_ISSUES.md #128),
+    # so the period type is matched here.
     for data_set in data_sets:
         if data_set.get("periodType") != "Monthly":
             continue

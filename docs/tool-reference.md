@@ -581,7 +581,7 @@ Create or update `namespace/key`. `value` is arbitrary JSON. Returns a status li
 
 ### `doctor_bugs`
 
-Run only BUGS.md workaround drift probes (workspace maintenance).
+Run only DHIS2_ISSUES.md workaround drift probes (workspace maintenance).
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -3264,7 +3264,7 @@ Create a route via POST /api/routes.
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| `payload` | `object` | yes | Typed body for `POST /api/routes` + `PUT /api/routes/{uid}`.  DHIS2 accepts (and requires on create) at least `code`, `name`, `url`. `extra="allow"` preserves anything else the server cares about that isn't explicitly typed here.  `auth` is the discriminated `AuthScheme` union — one of five typed variants keyed on `type`. The codegen `spec_patches` module synthesises the Jackson discriminator that upstream DHIS2 omits (BUGS.md #14), so this field is fully typed end-to-end. Callers either build a concrete variant directly (e.g. `HttpBasicAuthScheme(username=..., password=...)`) or pass a raw dict with a `type` key and pydantic routes it to the right subclass. |
+| `payload` | `object` | yes | Typed body for `POST /api/routes` + `PUT /api/routes/{uid}`.  DHIS2 accepts (and requires on create) at least `code`, `name`, `url`. `extra="allow"` preserves anything else the server cares about that isn't explicitly typed here.  `auth` is the discriminated `AuthScheme` union — one of five typed variants keyed on `type`. The codegen `spec_patches` module synthesises the Jackson discriminator that upstream DHIS2 omits (DHIS2_ISSUES.md #14), so this field is fully typed end-to-end. Callers either build a concrete variant directly (e.g. `HttpBasicAuthScheme(username=..., password=...)`) or pass a raw dict with a `type` key and pydantic routes it to the right subclass. |
 | `profile` | `string` | no | — |
 
 ### `route_delete`
@@ -3324,7 +3324,7 @@ Replace a route via PUT /api/routes/{uid} (full-object semantics).
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `route` | `string` | yes | — |
-| `payload` | `object` | yes | Typed body for `POST /api/routes` + `PUT /api/routes/{uid}`.  DHIS2 accepts (and requires on create) at least `code`, `name`, `url`. `extra="allow"` preserves anything else the server cares about that isn't explicitly typed here.  `auth` is the discriminated `AuthScheme` union — one of five typed variants keyed on `type`. The codegen `spec_patches` module synthesises the Jackson discriminator that upstream DHIS2 omits (BUGS.md #14), so this field is fully typed end-to-end. Callers either build a concrete variant directly (e.g. `HttpBasicAuthScheme(username=..., password=...)`) or pass a raw dict with a `type` key and pydantic routes it to the right subclass. |
+| `payload` | `object` | yes | Typed body for `POST /api/routes` + `PUT /api/routes/{uid}`.  DHIS2 accepts (and requires on create) at least `code`, `name`, `url`. `extra="allow"` preserves anything else the server cares about that isn't explicitly typed here.  `auth` is the discriminated `AuthScheme` union — one of five typed variants keyed on `type`. The codegen `spec_patches` module synthesises the Jackson discriminator that upstream DHIS2 omits (DHIS2_ISSUES.md #14), so this field is fully typed end-to-end. Callers either build a concrete variant directly (e.g. `HttpBasicAuthScheme(username=..., password=...)`) or pass a raw dict with a `type` key and pydantic routes it to the right subclass. |
 | `profile` | `string` | no | — |
 
 ## `system`

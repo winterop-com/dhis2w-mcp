@@ -58,7 +58,7 @@ def register(mcp: Any) -> None:
         `target` is one of: `data-values`, `events`, `enrollments`,
         `tracked-entities`. DHIS2 keeps rows marked `deleted=true` for audit;
         this endpoint purges them, unblocking parent-metadata deletion
-        (see BUGS.md #2).
+        (see DHIS2_ISSUES.md #2).
         """
         await service.remove_soft_deleted(resolve_profile(profile), SoftDeleteTarget(target))
         return {"status": f"soft-deleted {target} removed"}
