@@ -55,7 +55,7 @@ Edit your config (`~/Library/Application Support/Claude/claude_desktop_config.js
       "command": "uvx",
       "args": ["dhis2w-mcp"],
       "env": {
-        "DHIS2_URL": "https://play.im.dhis2.org/dev-2-43",
+        "DHIS2_URL": "https://play.dhis2.org/2.43",
         "DHIS2_USERNAME": "admin",
         "DHIS2_PASSWORD": "district"
       }
@@ -73,14 +73,14 @@ For PAT auth, swap the username/password env vars for `"DHIS2_PAT": "d2p_..."`. 
 ```bash
 # Option 1 — uvx (no install, fetches from PyPI on each run)
 claude mcp add d2w -s user \
-  -e DHIS2_URL=https://play.im.dhis2.org/dev-2-43 \
+  -e DHIS2_URL=https://play.dhis2.org/2.43 \
   -e DHIS2_USERNAME=admin \
   -e DHIS2_PASSWORD=district \
   -- uvx dhis2w-mcp
 
 # Option 2 — installed via `uv tool install dhis2w-mcp`
 claude mcp add d2w -s user \
-  -e DHIS2_URL=https://play.im.dhis2.org/dev-2-43 \
+  -e DHIS2_URL=https://play.dhis2.org/2.43 \
   -e DHIS2_PAT=d2p_... \
   -- dhis2w-mcp
 
@@ -109,7 +109,7 @@ Edit `~/.cursor/mcp.json`:
       "command": "uvx",
       "args": ["dhis2w-mcp"],
       "env": {
-        "DHIS2_URL": "https://play.im.dhis2.org/dev-2-43",
+        "DHIS2_URL": "https://play.dhis2.org/2.43",
         "DHIS2_USERNAME": "admin",
         "DHIS2_PASSWORD": "district"
       }
