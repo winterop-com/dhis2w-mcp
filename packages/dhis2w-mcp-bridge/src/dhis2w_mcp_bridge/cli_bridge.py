@@ -297,13 +297,13 @@ def _profile_flag_in_args(args: list[str]) -> str | None:
     after the command path belongs to that subcommand (`--program`, `--predictor`) and is left
     alone.
     """
-    for token in args:
-        if token == "--" or not token.startswith("-"):
+    for argument in args:
+        if argument == "--" or not argument.startswith("-"):
             return None
-        if token in _PROFILE_FLAGS or token.startswith("--profile="):
-            return token
-        if token.startswith("-p") and not token.startswith("--"):
-            return token
+        if argument in _PROFILE_FLAGS or argument.startswith("--profile="):
+            return argument
+        if argument.startswith("-p") and not argument.startswith("--"):
+            return argument
     return None
 
 
