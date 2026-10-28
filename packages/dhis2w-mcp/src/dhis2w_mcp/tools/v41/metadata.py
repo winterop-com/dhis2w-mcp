@@ -263,7 +263,8 @@ def register(mcp: Any) -> None:
                 ignored_fields=ignored,
             )
         else:
-            assert right_path is not None
+            if right_path is None:
+                raise ValueError("`right_path` is required")
             right_raw = json.loads(Path(right_path).read_text(encoding="utf-8"))
             if not isinstance(right_raw, dict):
                 raise TypeError(f"{right_path} must contain a bundle object")
@@ -612,7 +613,8 @@ def register(mcp: Any) -> None:
                 raise TypeError(f"{bundle_path} must contain a bundle object (got {type(loaded).__name__})")
             raw = loaded
         else:
-            assert bundle_inline is not None  # the exactly-one check guarantees this
+            if bundle_inline is None:
+                raise ValueError("`bundle_inline` is required")
             raw = bundle_inline
         bundle = MetadataBundle.from_raw(raw)
         return await service.import_metadata(
@@ -3342,7 +3344,8 @@ def register(mcp: Any) -> None:
         if level is not None:
             row = await service.show_organisation_unit_level_by_level(resolve_profile(profile), level)
         else:
-            assert uid is not None
+            if uid is None:
+                raise ValueError("`uid` is required")
             row = await service.show_organisation_unit_level(resolve_profile(profile), uid)
         return _dump_model(row) if row is not None else None
 
@@ -3367,7 +3370,8 @@ def register(mcp: Any) -> None:
                 offline_levels=offline_levels,
             )
         else:
-            assert uid is not None
+            if uid is None:
+                raise ValueError("`uid` is required")
             row = await service.rename_organisation_unit_level(
                 resolve_profile(profile),
                 uid,
